@@ -1,0 +1,19 @@
+Grain game
+Make a class called Grain. 
+Then make a subclass called Rice that inherits the properties of the class Grain.
+Repeat it with Wheat and Corn.
+After this, make a method called grow() that will ask you to enter the type of grain, the time of the growing process
+and the amount of water per day(the required amount will be displayed for easier reference).
+After this, output whether your grain will end up in a good condition or a bad condition(in %).
+Create a second method called harvest(), which you will be able to call in case of a good condition of the output of the grow() method.
+Should the condition of the grain be bad, try again next year and suffer material losses.
+
+The idea of the game:
+You start with some money, on this money you can buy the grains to make your first crops. Also i can some random conditiot using the
+random function.
+For example, every turn there is a 5% chance that some disaster happens, for exmaple rain, drought, hurricane etc,
+If the disaster occurs, the condition of the crops worsens and you suffer money losses.
+and you will suffer some losses.
+I will make it so every crop has an advantage in some disasters and the point of the game is to be rich!
+I will also(maybe) make some protective stuff to dodge disasters, but i think its too much :D
+
