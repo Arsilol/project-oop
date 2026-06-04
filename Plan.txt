@@ -1,19 +1,33 @@
-Grain game
-Make a class called Grain. 
-Then make a subclass called Rice that inherits the properties of the class Grain.
-Repeat it with Wheat and Corn.
-After this, make a method called grow() that will ask you to enter the type of grain, the time of the growing process
-and the amount of water per day(the required amount will be displayed for easier reference).
-After this, output whether your grain will end up in a good condition or a bad condition(in %).
-Create a second method called harvest(), which you will be able to call in case of a good condition of the output of the grow() method.
-Should the condition of the grain be bad, try again next year and suffer material losses.
+Grain Game
 
-The idea of the game:
-You start with some money, on this money you can buy the grains to make your first crops. Also i can some random conditiot using the
-random function.
-For example, every turn there is a 5% chance that some disaster happens, for exmaple rain, drought, hurricane etc,
-If the disaster occurs, the condition of the crops worsens and you suffer money losses.
-and you will suffer some losses.
-I will make it so every crop has an advantage in some disasters and the point of the game is to be rich!
-I will also(maybe) make some protective stuff to dodge disasters, but i think its too much :D
+Make a class called Grain.
+
+Then make subclasses called Rice, Wheat and Corn that inherit the properties of the Grain class.
+
+After this, make a method called grow() that will ask the player to enter the type of grain, the time of the growing process and the amount of water per day (the required amount will be displayed for easier reference).
+
+The grow() method will then calculate the condition of the crop and output whether the grain will end up in a good condition or a bad condition (in %).
+
+Create a second method called harvest(), which can only be called if the condition of the crop is good enough. If the condition is too low, the harvest fails and the player suffers money losses.
+
+Create a third method called makeFood(). This method will create a food product depending on the grain type that you harvested(and then sell the said food):
+
+* 1 Rice -> Sushi(Sells for 130$)(not resistant to anything)
+* 1 Wheat -> Bread(Sells for 80$)(more resistant to drought and flood)
+* 1 Corn -> Popcorn(Sells for 90$)(more resistant to drought and hurricane)
+I can add more recipes if needed
+
+The game starts with a Farmer object that has a certain amount of money(1000$). The player can use this money to buy seeds and plant crops on their Farm.
+
+The Farm object stores all planted crops and can grow, then harvest them(depending on the condition).
+
+Every season(cycle from choosing crops, growing them, harvesting and then selling or not) there is a small chance that a random disaster occurs (drought, flood or hurricane).
+Different grain types react differently to disasters. For example, Wheat may resist floods better than Corn, while Corn may resist hurricanes better than Wheat. while Rice is not resistant to anything(hence why sushi is expensive).
+
+Disasters decrease the condition of crops and may cause money losses(if the crops are not resistant).
+
+After harvesting, the player can sell the food that he makes using the makeFood() method to earn money or keep growing more crops.
+
+The goal of the game is to earn as much money as possible and become a successful farmer without going bankrupt, and if you go bankrupt you lose.
+
 
