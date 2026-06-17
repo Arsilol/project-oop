@@ -187,6 +187,140 @@ def random_disaster(crop):
         print(f"New quality: {crop.quality}%")
 
 
+def test_rice_food():
+    storage = FoodStorage()
+    rice = Rice()
+
+    rice.make_food(storage)
+
+    assert storage.sushi == 1
+    assert storage.bread == 0
+    assert storage.popcorn == 0
+
+    print("Rice food test passed")
+
+
+def test_wheat_food():
+    storage = FoodStorage()
+    wheat = Wheat()
+
+    wheat.make_food(storage)
+
+    assert storage.sushi == 0
+    assert storage.bread == 1
+    assert storage.popcorn == 0
+
+    print("Wheat food test passed")
+
+
+def test_corn_food():
+    storage = FoodStorage()
+    corn = Corn()
+
+    corn.make_food(storage)
+
+    assert storage.sushi == 0
+    assert storage.bread == 0
+    assert storage.popcorn == 1
+
+    print("Corn food test passed")
+
+
+def test_rice_drought():
+    rice = Rice()
+
+    rice.quality = 100
+
+    drought = Disaster("Drought")
+
+    rice.handle_disaster(drought)
+
+    assert rice.quality == 70
+
+    print("Rice drought test passed")
+
+
+def test_wheat_drought():
+    wheat = Wheat()
+
+    wheat.quality = 100
+
+    drought = Disaster("Drought")
+
+    wheat.handle_disaster(drought)
+
+    assert wheat.quality == 90
+
+    print("Wheat drought test passed")
+
+
+def test_corn_storm():
+    corn = Corn()
+
+    corn.quality = 100
+
+    storm = Disaster("Storm")
+
+    corn.handle_disaster(storm)
+
+    assert corn.quality == 95
+
+    print("Corn storm test passed")
+
+
+def test_farm_storage():
+    farm = Farm()
+
+    farm.add_crop(Rice())
+    farm.add_crop(Wheat())
+
+    assert len(farm.crops) == 2
+
+    print("Farm storage test passed")
+
+
+def test_polymorphic_food_creation():
+    storage = FoodStorage()
+
+    crops = [
+        Rice(),
+        Wheat(),
+        Corn()
+    ]
+
+    for crop in crops:
+        crop.make_food(storage)
+
+    assert storage.sushi == 1
+    assert storage.bread == 1
+    assert storage.popcorn == 1
+
+    print("Polymorphism test passed")
+
+
+def run_tests():
+    print("\n=========================")
+    print("RUNNING TESTS")
+    print("=========================\n")
+
+    test_rice_food()
+    test_wheat_food()
+    test_corn_food()
+
+    test_rice_drought()
+    test_wheat_drought()
+    test_corn_storm()
+
+    test_farm_storage()
+
+    test_polymorphic_food_creation()
+
+    print("\n=========================")
+    print("ALL TESTS PASSED")
+    print("=========================\n")
+
+run_tests()
+
 farm = Farm()
 storage = FoodStorage()
 
